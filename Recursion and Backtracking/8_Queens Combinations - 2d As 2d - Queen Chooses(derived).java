@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Main {
 
-    public static void queensCombinations(int qpsf, int tq, boolean[][] chess, int lru, int lcu){
+    public static void queensCombinations(int qpsf, int tq, boolean[][] chess, int i, int j){
         // write your code here
         
         if(qpsf==tq){
