@@ -17,6 +17,10 @@ public static int fibo_memo(int n,int dp[])
     {
         return dp[n]=n;
     }
+    if(dp[n]!=-1)
+    {
+        return dp[n];
+    }
     // main logic
     int ans=fibo_rec(n-1)+fibo_rec(n-2);
     dp[n]=ans;
