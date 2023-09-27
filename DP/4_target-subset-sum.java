@@ -26,46 +26,71 @@
       
     }
 
-//----------- Using Memoization nhi hua hai
-    //  public static int  Sum_Set_memo(int arr[],int idx,int target,int dp[])
-    // {
-    //     //base case
-    //     if(idx==arr.length-1)
-    //     {
-    //         if(target==0)
-    //         {
-    //          return dp[idx]=1;
-    //         }
-    //         else
-    //         {
-    //             return dp[idx]=0;
-    //         }
-    //     }
-    //     if(dp[idx]!=-1)
-    //     {
-    //         return dp[idx];
-    //     }
-        
+//----------- Using Memoization
 
-    //     // yes ki call - pick an element
-    //     int ans1=Sum_Set_memo(arr,idx+1,target-arr[idx],dp);
-        
-    //     // no ki call - not pick an element
-    //     int ans2=Sum_Set_memo(arr,idx+1,target,dp);
-         
-    //      if(ans1==1 || ans2==1)
-    //      {
+class Solution{
+    
+     public static int  Sum_Set_memo(int arr[],int idx,int target,int dp[][])
+     {
+         // Base case
+        if (idx == arr.length) 
+        {
+            if (target == 0) 
+            {
+                return 1;
+            } else 
+            {
+                return 0;
+            }
+        }
 
-    //       dp[idx]=1; //  true||false=true
-    //      }
-    //      else
-    //      {
-    //        dp[idx]=0;
-    //      }
-    //     return dp[idx]
+        if (target < 0) 
+        {
+            return 0;
+        }
+
+        if (dp[idx][target] != -1) 
+        {
+            return dp[idx][target];
+        }
+
+        // Consider the current element in the subset
+        int ans1 = Sum_Set_memo(arr, idx + 1, target - arr[idx], dp);
+
+        // Skip the current element in the subset
+        int ans2 = Sum_Set_memo(arr, idx + 1, target, dp);
+
+        if (ans1 == 1 || ans2 == 1) 
+        {
+            dp[idx][target] = 1;
+        } else 
+        {
+            dp[idx][target] = 0;
+        }
+        return dp[idx][target];
+      
+    }
+
+    static Boolean isSubsetSum(int n, int arr[], int sum){
+         int dp[][] = new int[n + 1][sum + 1];
+
+        // Initialize the memoization table
+        for (int i = 0; i <= n; i++) 
+        {
+            for (int j = 0; j <= sum; j++) 
+            {
+                dp[i][j] = -1;
+            }
+        }
+
+        int ans = Sum_Set_memo(arr, 0, sum, dp);
+        return ans == 1;
+        
+    }
+}
+    
       
       
-    // }
 
 //-------Tabulation---------------------
 
