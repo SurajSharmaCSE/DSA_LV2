@@ -2,9 +2,23 @@ import java.io.*;
 import java.security.Key;
 import java.util.*;
 
+/*
+   Steps to Write Code
+   1. Create a class HashMap<K,V>
+   2. Create a bucked[] array LinkedList type 
+   3. Iniliaze each bucked Index with Linked List
+   4. First Write hashfun(K key) function and getindexWithBucked(key , bi) function
+   5. then Write put(Key,value) Function 
+      => After Writeing put function you can easyly write (get(), containsKey(), remove() ) functions
+      put function code steps
+      - get bi = hashfun(key)
+      - get di = getIndexwithBucked
+     
+ */
 public class Main {
 
-  public static class HashMap<K, V> {
+  public static class HashMap<K, V> 
+  {
     private class HMNode {
       K key;
       V value;
@@ -18,12 +32,32 @@ public class Main {
     private int size; // n
     private LinkedList<HMNode>[] buckets; // N = buckets.length
 
-    public HashMap() {
+    public HashMap() 
+    {
       initbuckets(4);
       size = 0;
     }
 
-    private void initbuckets(int N) {
+    public int hashFunction(K key)
+    {
+        return Math.abs(key.hashCode())%buckets.length;
+    }
+
+    public int findWithInBucket(K key,int bi)  // this is getIndexwithBucked(K key)
+    {
+        for(int i=0;i<buckets[bi].size();i++)
+        {
+            K key1=buckets[bi].get(i).key;
+            if(key1.equals(key))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private void initbuckets(int N) 
+    {
       buckets = new LinkedList[N];
       for (int bi = 0; bi < buckets.length; bi++) {
         buckets[bi] = new LinkedList<>();
@@ -54,7 +88,8 @@ public class Main {
 
     }
 
-    public void put(K key, V value) {
+    public void put(K key, V value) 
+    {
       // write your code here
       // key --> Hash_Funtion --> HashCode ---> Entry yes/no
 
@@ -76,22 +111,6 @@ public class Main {
       {
         resize();
       }
-    }
-    public int hashFunction(K key)
-    {
-        return Math.abs(key.hashCode())%buckets.length;
-    }
-    public int findWithInBucket(K key,int bi)
-    {
-        for(int i=0;i<buckets[bi].size();i++)
-        {
-            K key1=buckets[bi].get(i).key;
-            if(key1.equals(key))
-            {
-                return i;
-            }
-        }
-        return -1;
     }
 
     public V get(K key)  {
