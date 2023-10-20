@@ -1,3 +1,4 @@
+package HashMap;
 
 HashMap<String,Boolean>city=new HashMap<>();
 		
