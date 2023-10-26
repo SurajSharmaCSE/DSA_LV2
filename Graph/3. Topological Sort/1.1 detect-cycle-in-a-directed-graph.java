@@ -18,8 +18,7 @@ class Solution {
          //step-2 add Nodes in Queue Whose Indegree is zero alreday 
          for(int i=0;i<V;i++)
          {
-             if(indegree[i]==0)
-             
+             if(indegree[i]==0)  
              {
                  q.add(i);
              }

@@ -51,7 +51,7 @@ class Solution {
 
 /* -------------------------Start bfs Code --------------------- */
 
-// you can use alos kahn's algo for find cycle in directed graph 
+// use alos kahn's algo for find cycle in directed graph 
 
 /*Complete the function below*/
 

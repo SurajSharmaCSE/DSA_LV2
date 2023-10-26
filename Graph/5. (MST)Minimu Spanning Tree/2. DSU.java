@@ -11,12 +11,13 @@ class Code {
         par[u] = findParent(par[u]);
         return par[u];
     }
-
+// main logic
     public void merge(int u, int v) 
     {
+        //step-1 find parent u and v
         int p1 = findParent(u);
         int p2 = findParent(v);
-
+        //step-2 , step-3 => find rank of u,v and attech larger rank parnt to smaller
         if (p1 != p2) {
             if (size[p1] > size[p2]) 
             {
@@ -30,10 +31,11 @@ class Code {
         }
     }
 
+    // give
     public void DSU(int V, int[][] adj) 
     {
         par = new int[V];
-        size = new int[V];
+        size = new int[V];  // rank
 
         for (int i = 0; i < V; i++) 
         {
