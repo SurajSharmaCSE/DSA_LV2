@@ -10,10 +10,11 @@
       while(curr!=null)
       {
          
-          //cheking curr.left!=null then create temp
+        //cheking curr.left!=null then create temp
        if(curr.left!=null)
         {   
               TreeNode temp=curr.left;
+               ans.add(curr.val);
           
           //step-3
           while(temp.right!=null && temp.right!=curr)
