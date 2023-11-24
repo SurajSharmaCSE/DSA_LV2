@@ -1,3 +1,22 @@
+/*
+ALgo Steps:
+1. FInd parent of u, v
+2. if(different parent then marge larger to smaller)
+
+ // FUnction I have to write 
+ 1. Main function or DSU Function 
+     - take u, v 
+     - find parent of u, v
+     - if(differnet then call maerge function)
+ 2. Merge Function()
+    - find parent of parent(parent(u), parent(v));
+    - attech larget rank parent to smaller
+ 3. Findparent Function()  - > it's function also called Path compression function bcs in methos we make all node parent only
+                               person that rank higher among all 
+
+*/
+
+
 class Code {
     int par[];
     int size[]; // rank array
