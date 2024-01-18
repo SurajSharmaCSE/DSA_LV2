@@ -44,13 +44,13 @@ public class Solution {
 	/*
 	Approch-2:
 	1. Travese on Array using for loop i=0 to i<n-1, and alos take idx=0
-	2. if(i even  && arr[idx+1]<arr[idx])
+	2. if(i even  && arr[i+1]<arr[i])
 	   {
-		   swap(arr,idx,idx+1)
+		   swap(arr,i,i+1)
 	   }
-	3. if(i odd  && arr[idx+1]>arr[idx])
+	3. if(i odd  && arr[i+1]>arr[i])
 	   {
-		   swap(arr,idx,idx+1)
+		   swap(arr,i,i+1)
 	   }
 	*/
 
